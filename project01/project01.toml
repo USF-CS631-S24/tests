@@ -4,7 +4,7 @@ input = ["./project01", "-e", "1 + 2"]
 expected = """
 3
 """
-rubric = 3
+rubric = 2
 
 [[tests]]
 name = "02"
@@ -12,7 +12,7 @@ input = ["./project01", "-e", "10", "-b", "16"]
 expected = """
 0x0000000A
 """
-rubric = 3
+rubric = 2
 
 [[tests]]
 name = "03"
@@ -20,7 +20,7 @@ input = ["./project01", "-e", "10 + 1"]
 expected = """
 11
 """
-rubric = 3
+rubric = 2
 
 [[tests]]
 name = "04"
@@ -68,7 +68,7 @@ input = ["./project01", "-e", "0x0A", "-b", "2", "-w", "8"]
 expected = """
 0b00001010
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "10"
@@ -76,7 +76,7 @@ input = ["./project01", "-e", "((1 + 1) * 1)", "-b", "16", "-w", "16"]
 expected = """
 0x0002
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "11"
@@ -84,7 +84,7 @@ input = ["./project01", "-e", "((1 + 1) * 1)", "-b", "2", "-w", "8"]
 expected = """
 0b00000010
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "12"
@@ -92,7 +92,7 @@ input = ["./project01", "-e", "(1 << 16)", "-b", "10", "-w", "32"]
 expected = """
 65536
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "13"
@@ -100,7 +100,7 @@ input = ["./project01", "-e", "(1 << 16)", "-b", "10", "-w", "16"]
 expected = """
 0
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "14"
@@ -108,7 +108,7 @@ input = ["./project01", "-e", "(1 << 16)", "-b", "16", "-w", "32"]
 expected = """
 0x00010000
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "15"
@@ -116,7 +116,7 @@ input = ["./project01", "-b", "10", "-w", "8", "-e", "(2 * (0b1111 & 0b1010))"]
 expected = """
 20
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "16"
@@ -124,7 +124,7 @@ input = ["./project01", "-b", "10", "-w", "8", "-e", "0b00001000"]
 expected = """
 8
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "17"
@@ -132,7 +132,7 @@ input = ["./project01", "-b", "10", "-w", "4", "-e", "0b00001000"]
 expected = """
 -8
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "18"
@@ -140,7 +140,7 @@ input = ["./project01", "-b", "10", "-u", "-w", "4", "-e", "0b00001000"]
 expected = """
 8
 """
-rubric = 3
+rubric = 4
 
 [[tests]]
 name = "19"
@@ -148,7 +148,7 @@ input = ["./project01", "-b", "10", "-w", "8", "-e", "-128 >- 2"]
 expected = """
 -32
 """
-rubric = 3
+rubric = 5
 
 [[tests]]
 name = "20"
@@ -156,4 +156,29 @@ input = ["./project01", "-e", "(((((~((-(2 * ((1023 + 1) / 4)) >- 2) << 8)) >> 1
 expected = """
 -1
 """
+rubric = 5
+
+[[tests]]
+name = "21"
+input = ["./project01", "-e", "0xffffffff"]
+expected = """
+-1
+"""
 rubric = 3
+
+[[tests]]
+name = "22"
+input = ["./project01", "-e", "0xffffffff1"]
+expected = """
+overflows uint32_t: ffffffff1
+"""
+rubric = 3
+
+[[tests]]
+name = "23"
+input = ["./project01", "-e", "0x000000000ffffffff"]
+expected = """
+-1
+"""
+rubric = 3
+
