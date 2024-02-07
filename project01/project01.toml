@@ -1,6 +1,6 @@
 [[tests]]
 name = "01"
-input = ["./project02", "-e", "1 + 2"]
+input = ["./project01", "-e", "1 + 2"]
 expected = """
 3
 """
@@ -8,7 +8,7 @@ rubric = 3
 
 [[tests]]
 name = "02"
-input = ["./project02", "-e", "10", "-b", "16"]
+input = ["./project01", "-e", "10", "-b", "16"]
 expected = """
 0x0000000A
 """
@@ -16,7 +16,7 @@ rubric = 3
 
 [[tests]]
 name = "03"
-input = ["./project02", "-e", "10 + 1"]
+input = ["./project01", "-e", "10 + 1"]
 expected = """
 11
 """
@@ -24,7 +24,7 @@ rubric = 3
 
 [[tests]]
 name = "04"
-input = ["./project02", "-e", "10 + 1", "-b", "16"]
+input = ["./project01", "-e", "10 + 1", "-b", "16"]
 expected = """
 0x0000000B
 """
@@ -32,7 +32,7 @@ rubric = 3
 
 [[tests]]
 name = "05"
-input = ["./project02", "-e", "10", "-b", "16", "-w", "16"]
+input = ["./project01", "-e", "10", "-b", "16", "-w", "16"]
 expected = """
 0x000A
 """
@@ -40,7 +40,7 @@ rubric = 3
 
 [[tests]]
 name = "06"
-input = ["./project02", "-e", "10", "-b", "2"]
+input = ["./project01", "-e", "10", "-b", "2"]
 expected = """
 0b00000000000000000000000000001010
 """
@@ -48,7 +48,7 @@ rubric = 3
 
 [[tests]]
 name = "07"
-input = ["./project02", "-e", "10", "-b", "2", "-w", "4"]
+input = ["./project01", "-e", "10", "-b", "2", "-w", "4"]
 expected = """
 0b1010
 """
@@ -56,7 +56,7 @@ rubric = 3
 
 [[tests]]
 name = "08"
-input = ["./project02", "-e", "0x0A", "-b", "10"]
+input = ["./project01", "-e", "0x0A", "-b", "10"]
 expected = """
 10
 """
@@ -64,7 +64,7 @@ rubric = 3
 
 [[tests]]
 name = "09"
-input = ["./project02", "-e", "0x0A", "-b", "2", "-w", "8"]
+input = ["./project01", "-e", "0x0A", "-b", "2", "-w", "8"]
 expected = """
 0b00001010
 """
@@ -72,7 +72,7 @@ rubric = 3
 
 [[tests]]
 name = "10"
-input = ["./project02", "-e", "((1 + 1) * 1)", "-b", "16", "-w", "16"]
+input = ["./project01", "-e", "((1 + 1) * 1)", "-b", "16", "-w", "16"]
 expected = """
 0x0002
 """
@@ -80,7 +80,7 @@ rubric = 3
 
 [[tests]]
 name = "11"
-input = ["./project02", "-e", "((1 + 1) * 1)", "-b", "2", "-w", "8"]
+input = ["./project01", "-e", "((1 + 1) * 1)", "-b", "2", "-w", "8"]
 expected = """
 0b00000010
 """
@@ -88,7 +88,7 @@ rubric = 3
 
 [[tests]]
 name = "12"
-input = ["./project02", "-e", "(1 << 16)", "-b", "10", "-w", "32"]
+input = ["./project01", "-e", "(1 << 16)", "-b", "10", "-w", "32"]
 expected = """
 65536
 """
@@ -96,7 +96,7 @@ rubric = 3
 
 [[tests]]
 name = "13"
-input = ["./project02", "-e", "(1 << 16)", "-b", "10", "-w", "16"]
+input = ["./project01", "-e", "(1 << 16)", "-b", "10", "-w", "16"]
 expected = """
 0
 """
@@ -104,7 +104,7 @@ rubric = 3
 
 [[tests]]
 name = "14"
-input = ["./project02", "-e", "(1 << 16)", "-b", "16", "-w", "32"]
+input = ["./project01", "-e", "(1 << 16)", "-b", "16", "-w", "32"]
 expected = """
 0x00010000
 """
@@ -112,7 +112,7 @@ rubric = 3
 
 [[tests]]
 name = "15"
-input = ["./project02", "-b", "10", "-w", "8", "-e", "(2 * (0b1111 & 0b1010))"]
+input = ["./project01", "-b", "10", "-w", "8", "-e", "(2 * (0b1111 & 0b1010))"]
 expected = """
 20
 """
@@ -120,7 +120,7 @@ rubric = 3
 
 [[tests]]
 name = "16"
-input = ["./project02", "-b", "10", "-w", "8", "-e", "0b00001000"]
+input = ["./project01", "-b", "10", "-w", "8", "-e", "0b00001000"]
 expected = """
 8
 """
@@ -128,7 +128,7 @@ rubric = 3
 
 [[tests]]
 name = "17"
-input = ["./project02", "-b", "10", "-w", "4", "-e", "0b00001000"]
+input = ["./project01", "-b", "10", "-w", "4", "-e", "0b00001000"]
 expected = """
 -8
 """
@@ -136,7 +136,7 @@ rubric = 3
 
 [[tests]]
 name = "18"
-input = ["./project02", "-b", "10", "-u", "-w", "4", "-e", "0b00001000"]
+input = ["./project01", "-b", "10", "-u", "-w", "4", "-e", "0b00001000"]
 expected = """
 8
 """
@@ -144,7 +144,7 @@ rubric = 3
 
 [[tests]]
 name = "19"
-input = ["./project02", "-b", "10", "-w", "8", "-e", "-128 >- 2"]
+input = ["./project01", "-b", "10", "-w", "8", "-e", "-128 >- 2"]
 expected = """
 -32
 """
@@ -152,7 +152,7 @@ rubric = 3
 
 [[tests]]
 name = "20"
-input = ["./project02", "-e", "(((((~((-(2 * ((1023 + 1) / 4)) >- 2) << 8)) >> 10) ^ 0b01110) & 0x1E) | ~(0b10000))"]
+input = ["./project01", "-e", "(((((~((-(2 * ((1023 + 1) / 4)) >- 2) << 8)) >> 10) ^ 0b01110) & 0x1E) | ~(0b10000))"]
 expected = """
 -1
 """
