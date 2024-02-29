@@ -1,0 +1,150 @@
+[project]
+timeout = 5
+
+[[tests]]
+name = "rstr_1"
+input = ["./rstr", "FooBar"]
+expected = """
+C: raBooF
+Asm: raBooF
+"""
+rubric = 5
+
+[[tests]]
+name = "rstr_2"
+input = ["./rstr", "CS315 Computer Architecture"]
+expected = """
+C: erutcetihcrA retupmoC 513SC
+Asm: erutcetihcrA retupmoC 513SC
+"""
+rubric = 5
+
+[[tests]]
+name = "rstr_rec_1"
+input = ["./rstr_rec", "FooBar"]
+expected = """
+C: raBooF
+Asm: raBooF
+"""
+rubric = 5
+
+[[tests]]
+name = "rstr_rec_2"
+input = ["./rstr_rec", "CS315 Computer Architecture"]
+expected = """
+C: erutcetihcrA retupmoC 513SC
+Asm: erutcetihcrA retupmoC 513SC
+"""
+rubric = 5
+
+[[tests]]
+name = "pack_bytes_1"
+input = ["./pack_bytes", "1", "2", "3", "4"]
+expected = """
+C: 16909060
+Asm: 16909060
+"""
+rubric = 5
+
+[[tests]]
+name = "pack_bytes_2"
+input = ["./pack_bytes", "255", "255", "255", "255"]
+expected = """
+C: -1
+Asm: -1
+"""
+rubric = 5
+
+[[tests]]
+name = "unpack_bytes_1"
+input = ["./unpack_bytes", "16909060"]
+expected = """
+C: 1 2 3 4
+Asm: 1 2 3 4
+"""
+rubric = 5
+
+[[tests]]
+name = "unpack_bytes_2"
+input = ["./unpack_bytes", "-2"]
+expected = """
+C: 255 255 255 254
+Asm: 255 255 255 254
+"""
+rubric = 5
+
+[[tests]]
+name = "get_bitseq_1"
+input = ["./get_bitseq", "94116", "12", "15"]
+expected = """
+C: 6
+Asm: 6
+"""
+rubric = 1
+
+[[tests]]
+name = "get_bitseq_2"
+input = ["./get_bitseq", "94117", "4", "7"]
+expected = """
+C: 10
+Asm: 10
+"""
+rubric = 1
+
+[[tests]]
+name = "get_bitseq_signed_1"
+input = ["./get_bitseq_signed", "94117", "12", "15"]
+expected = """
+C: 6
+Asm: 6
+"""
+rubric = 4
+
+[[tests]]
+name = "get_bitseq_signed_2"
+input = ["./get_bitseq_signed", "94117", "4", "7"]
+expected = """
+C: -6
+Asm: -6
+"""
+rubric = 4
+
+[[tests]]
+name = "ntlang_args"
+input = ["./ntlang", "-e", "(a0 * a1) + a2", "-a0", "3", "-a1", "4", "-a2", "5"]
+expected = """
+17
+"""
+rubric = 10
+
+[[tests]]
+name = "ntlang_comp_p1"
+input = ["./ntcomp.sh", "(3 * 4) + 5", "p1"]
+expected = """
+17 (0x11)
+"""
+rubric = 10
+
+[[tests]]
+name = "ntlang_comp_p2"
+input = ["./ntcomp.sh", "(a0 * a1) + a2", "p2", "3", "4", "5"]
+expected = """
+17 (0x11)
+"""
+rubric = 10
+
+[[tests]]
+name = "ntlang_comp_p3"
+input = ["./ntcomp.sh", "(((((~((-(2 * ((1023 + 1) / 4)) >- 2) << 8)) >> 10) ^ 0b01110) & 0x1E) | ~(0b10000))", "p3"]
+expected = """
+-1 (0xFFFFFFFF)
+"""
+rubric = 10
+
+[[tests]]
+name = "ntlang_comp_p4"
+input = ["./ntcomp.sh", "(((((~((-(a0 * ((a1 + a2) / a3)) >- a4) << a5)) >> a6) ^ 0b01110) & 0x1E) | ~(0b10000))", "p4", "2", "1023", "1", "4", "2", "8", "10"]
+expected = """
+-1 (0xFFFFFFFF)
+"""
+rubric = 10
